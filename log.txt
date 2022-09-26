@@ -1,0 +1,11 @@
+8 bits vary as 0,1,2,3...255. So if mapped to 3 bits with 8 intervals, these correspond to:      * 0    32    64    96   128   160   192   224   256  if you take logs of all these thresholds and scale the value to go from 0-256, you get     * 0     6    13     22     32     45     64     96   256  Notice how the interval sizes keep logarithmically increasing. Taking logs of the first line and scaling will do exactly the opposite, you need to reverse it, as in second line is = 256*(1-log(reverse(firstline))/log(256)) The centers of the eight intervals correspond to 3, 9, 18, 27, 39, 55, 80, 176 Logs are base 2. You may use some other means to calculate log quantization, as long as the interval sizes increase logarithmically.
+
+2 time 
+
+8 bits vary as 0,1,2,3...255. So if mapped to 3 bits with 8 intervals, these correspond to: 
+    * 0    32    64    96   128   160   192   224   256 
+if you take logs of all these thresholds and scale the value to go from 0-256, you get
+    * 0     6    13     22     32     45     64     96   256 
+Notice how the interval sizes keep logarithmically increasing.
+Taking logs of the first line and scaling will do exactly the opposite, you need to reverse it, as in second line is = 256*(1-log(reverse(first line))/log(256))
+The centers of the eight intervals correspond to 3, 9, 18, 27, 39, 55, 80, 176
